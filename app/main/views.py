@@ -154,3 +154,14 @@ def add_comment(post_id):
         flash("Comment Submitted", "success")
         
     return redirect("/post/"+post_id)
+
+
+"""DELETE COMMENT"""
+@main.route("/post/comment/<id>", methods=['POST',"GET"])
+@login_required
+def delete_comment(id=None):
+    comment = Post.query.get_or_404(id)
+    db.session.delete(comment)
+    db.session.commit()
+    flash("Comment deleted", "success")
+    return redirect("/post/15")

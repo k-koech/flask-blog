@@ -1,49 +1,75 @@
-{% extends 'layout.html' %}
-
+{% extends "layout.html" %}
 {% block content %}
 <div class="row">
-  <div class="col-md-8">
-        <article class="media content-section">
-        <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_images/' +  post.author.image_file) }}">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" href="#">{{ post.author.username }}</a>
-               <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
-                {% if post.author == current_user %}
-                    <div>
-                      <a class="btn  btn-secondary btn-sm mt-1 mb-1" href="/post/update/{{post.id}}">Update</a>
-                      <button class="btn btn-danger btn-sm m-1" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-                    </div>
-                {% endif %}
-            </div>
-            <h2 class="article-title">{{ post.title }}</h2>
-            <p class="article-content">{{ post.content }}</p>
-          </div>
-        </article>
+<div class="col-md-8">
 
- <!-- Modal -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="deleteModalLabel">Delete Post?</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <form action="/post/delete/{{ post.id }}" method="POST">
-              <input class="btn btn-danger" type="submit" value="Delete">
-            </form>
-          </div>
+{% with messages=get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+        {{ message }}
         </div>
-      </div>
+    {% endfor %}
+    {% endif %}
+{% endwith %}
+
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Log In</legend>
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.password.label(class="form-control-label") }}
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-check">
+                    {{ form.remember(class="form-check-input") }}
+                    {{ form.remember.label(class="form-check-label") }}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+            <small class="text-muted ml-2">
+                <a href="#">Forgot Password?</a>
+            </small>
+        </form>
+    </div>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Need An Account? <a class="ml-2" href="{{ url_for('auth.register') }}">Sign Up Now</a>
+        </small>
     </div>
 
-  </div>
-  <div class="col-md-4">
-    {% block sidebar %}
-        {% include 'sidebar.html' %}
-    {% endblock %}
-    </div>
 </div>
-  {% endblock content %}
+<div class="col-md-4">
+{% block sidebar %}
+    {% include 'sidebar.html' %}
+{% endblock %}
+</div>
+
+
+  
+{% endblock content %}
