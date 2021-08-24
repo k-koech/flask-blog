@@ -7,6 +7,9 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 class User(db.Model, UserMixin):
+    '''
+     User class to define user Objects
+    '''
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20),unique=True, nullable=False)
@@ -22,6 +25,9 @@ class User(db.Model, UserMixin):
 
 
 class Post(db.Model):
+    '''
+     Post class to define post Objects
+    '''
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow)
@@ -32,6 +38,9 @@ class Post(db.Model):
         return f"Post('{self.title}', '{self.date_posted}')"
 
 class Comments(db.Model):
+    '''
+     Comments class to define quote Objects
+    '''
     id = db.Column(db.Integer,primary_key = True)
     post_id = db.Column(db.Integer,db.ForeignKey("post.id"))
     comment = db.Column(db.Text)
@@ -44,7 +53,7 @@ class Comments(db.Model):
 
 class Quote:
     '''
-    Quote class to define source Objects
+    Quote class to define quote Objects
     '''
     def __init__(self,author,id,quote,permalink):
         self.id =id
