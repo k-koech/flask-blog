@@ -31,12 +31,12 @@
             <div class="navbar-nav">
                <a class="nav-item nav-link" href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>  
             {% if current_user.is_authenticated %}
-               <a class="nav-item nav-link" href="/post/new">New Post</a>
-               <a class="nav-item nav-link" href="{{ url_for('main.profile') }}"><i class="fa fa-plus-square" aria-hidden="true"></i> Account</a>
-               <a class="nav-item nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+               <a class="nav-item nav-link" href="/post/new"><i class="fa fa-plus-square" aria-hidden="true"></i> New Post</a>
+               <a class="nav-item nav-link" href="{{ url_for('main.profile') }}"><i class="fa fa-user-md" aria-hidden="true"></i> Profile</a>
+               <a class="nav-item nav-link" href="{{ url_for('auth.logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
             {% else %}
-              <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">Login</a>
-              <a class="nav-item nav-link" href="{{ url_for('auth.register') }}">Register</a>
+              <a class="nav-item nav-link" href="{{ url_for('auth.login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+              <a class="nav-item nav-link" href="{{ url_for('auth.register') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a>
             {% endif %}
             </div>
           </div>
