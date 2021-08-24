@@ -19,7 +19,7 @@
     {% endif %}
 {% endwith %}
 
-    <div class="content-section">
+    <div class="content-section mt-5">
         <form method="POST" action="">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
@@ -70,7 +70,7 @@
     </div>
 
 </div>
-<div class="col-md-4">
+<div class="col-md-4 mt-4">
 {% block sidebar %}
     {% include 'sidebar.html' %}
 {% endblock %}
