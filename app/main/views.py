@@ -1,6 +1,6 @@
 import secrets, os
 from . import main
-from app.models import Post, User
+from app.models import Comments, Post, User
 from app import db
 from flask import url_for, render_template, flash, redirect, request, abort
 from .forms import PostForm, UpdateAccountForm, CommentForm
@@ -138,3 +138,16 @@ def post_delete(id):
         return redirect(url_for('main.home'))
     else:
         abort(403)
+
+"""ADD COMMENT"""
+@main.route("/post/<post_id>/comment", methods=['GET','POST'])
+@login_required
+def add_comment(post_id):
+    form = CommentForm()
+    if form.validate_on_submit():
+        new_comment = Comments(post_id=post_id, comment=form.comment.data, user_id=current_user.id)
+        db.session.add(new_comment)
+        db.session.commit()
+        flash("Comment Submitted", "success")
+        
+    return redirect(url_for("main.post")+post_id)
