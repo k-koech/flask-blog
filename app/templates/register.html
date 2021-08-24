@@ -3,13 +3,20 @@
 <div class="row">
 <div class="col-md-8">
 
+<div class="mt-3">
 {% with messages=get_flashed_messages(with_categories=true) %}
     {% if messages %}
-    {% for category, message in messages %}
-        <div class="alert alert-{{ category }}">
-        {{ message }}
-        </div>
-    {% endfor %}
+        {% for category, message in messages %}
+        {% if category==success %}
+            <div class="alert alert-success ">
+            {{ message }}
+            </div>
+        {% else %}
+        <div class="alert alert-danger }}">
+            {{ message }}
+            </div>
+        {%endif%}
+        {% endfor %}
     {% endif %}
 {% endwith %}
 
@@ -82,9 +89,10 @@
         Already REgistered? <a class="ml-2" href="{{ url_for('auth.login') }}">Sign In</a>
     </small>
 </div>
+</div>
 
 </div>
-<div class="col-md-4">
+<div class="col-md-4 mt-3">
 {% block sidebar %}
     {% include 'sidebar.html' %}
 {% endblock %}
