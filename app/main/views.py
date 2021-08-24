@@ -150,4 +150,4 @@ def add_comment(post_id):
         db.session.commit()
         flash("Comment Submitted", "success")
         
-    return redirect(url_for("main.post")+post_id)
+    return redirect("/post/"+post_id)
