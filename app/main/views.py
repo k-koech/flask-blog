@@ -52,6 +52,8 @@ def save_picture(form_pic):
 @login_required
 def profile():
     form = UpdateAccountForm()
+    raw_quotes = get_quotes()
+    quotes = json.loads(raw_quotes)
     if form.validate_on_submit():
         if form.picture.data:
                 picture_file=save_picture(form.picture.data)
@@ -63,8 +65,6 @@ def profile():
         flash("Your profile has been updated", "success")
         return redirect(url_for('main.profile'))
     elif request.method=="GET":
-        raw_quotes = get_quotes()
-        quotes = json.loads(raw_quotes)
         form.username.data=current_user.username
         form.email.data=current_user.email
     image_url=url_for('static',filename='profile_images/'+current_user.image_file)
