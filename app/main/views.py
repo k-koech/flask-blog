@@ -98,10 +98,13 @@ def new_post():
 @login_required
 def post(id):
     form = CommentForm()
+
     raw_quotes = get_quotes()
     quotes = json.loads(raw_quotes)
+
+    comments = Comments.filter(post_id=id).all()
     post = Post.query.get_or_404(id)
-    return render_template("post.html", title=post.title,post=post, quotes=quotes, form=form)
+    return render_template("post.html", title=post.title,post=post, quotes=quotes, form=form, comments=comments)
 
 """UPDATE POST VIEW"""
 @main.route("/post/update/<id>", methods=['GET','POST'])

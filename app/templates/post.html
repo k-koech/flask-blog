@@ -32,8 +32,10 @@
     </article>
   
     <div class="row">
-      <div class="profile col-md-2">
-        <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_images/' +  current_user.image_file) }}">
+      <div class="profile col-md-2 text-right">
+        <div>
+          <img class="rounded-circle " width="50" height="50" src="{{ url_for('static', filename='profile_images/' +  current_user.image_file) }}">
+        </div>
       </div>
       <div class="col-md-10">
       <form method="POST" action="">
@@ -51,12 +53,14 @@
                   {{ form.comment(class="form-control form-control-lg",rows='1') }}
               {% endif %}
           </div>
-  
-         
           <div class="form-group text-right">
               {{ form.submit(class="btn btn-outline-primary btn-sm") }}
           </div>
       </form>
+
+      <div>
+        <p></p>
+      </div>
       </div>
     </div>
 
