@@ -16,10 +16,10 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
   </head>
   <body>
-  <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+  <header class="site-header mb-5">
+      <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top pb-0 ">
         <div class="container">
-          <a class="navbar-brand mr-4" href="/">
+          <a class="navbar-brand mr-4" style="margin-top:-10px;" href="/">
             <div class="row">
               <div class="col-sm-6 " style="position:relative">
                  <img class="rounded-circle" width="67" height="68" src="{{ url_for('static', filename='logo.png') }}">
@@ -52,13 +52,13 @@
         </div>
       </nav>
     </header>
-  <div class="container">
+  <div class="container mt-3">
     {% block content %}
     
     {% endblock %}
   </div>
   <hr>
-  <div class="bg-white text-center p-3">
+  <div class="bg-white text-center bg-dark pt-3">
     <p >Designed by Kelvin Kipchumba Koech. +254725801772</p>
     <p class="copyright">&copy;KK Blog <script>document.write(new Date().getFullYear());</script>. All rights reserved</p>
   </div>

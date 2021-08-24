@@ -1,4 +1,4 @@
-<div class="content-section">
+<div class="content-section pt-4">
    
     <h3>Subscribe to our Articles</h3>
     <form class="mb-2" method="POST" action="/subscribe/{{ current_user.id }}">
@@ -23,6 +23,7 @@
         </div>
     </form>
       <div class="">
+        <h5 class="font-weight-bold"><u>Qoute</u></h5>
         <p class="font-weight-bold">" {{ quotes.quote }}"</p>
         <p class="text-right">~ {{ quotes.author }}</p>
       </div>
