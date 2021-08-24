@@ -3,7 +3,7 @@ from . import main
 from app.models import Post, User
 from app import db
 from flask import url_for, render_template, flash, redirect, request, abort
-from .forms import PostForm, UpdateAccountForm
+from .forms import PostForm, UpdateAccountForm, CommentForm
 from flask_login import  current_user, login_required
 from PIL import Image
 import json
@@ -97,10 +97,11 @@ def new_post():
 @main.route("/post/<id>", methods=['GET','POST'])
 @login_required
 def post(id):
+    form = CommentForm()
     raw_quotes = get_quotes()
     quotes = json.loads(raw_quotes)
     post = Post.query.get_or_404(id)
-    return render_template("post.html", title=post.title,post=post, quotes=quotes)
+    return render_template("post.html", title=post.title,post=post, quotes=quotes, form=form)
 
 """UPDATE POST VIEW"""
 @main.route("/post/update/<id>", methods=['GET','POST'])
