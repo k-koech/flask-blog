@@ -9,8 +9,10 @@
     - Open the folder with vs code.
     - Run "chmod a+x start.sh" to make it exwcutable.
     - Run the project in terminal using "./start.sh" command.
+    - Create database and add its URI in config file
+    - Then use 'heroku run python3 manage.py db upgrade' to create tables in the database.
     - And you are all done
-The application has no backend. Just frontend.
+
 
 ## BDD
     As a user should;
@@ -34,7 +36,7 @@ The application has no backend. Just frontend.
     - I would like to view the different categories.
     
 ## Live link
-Deployed project can be accessed here [Blog](https://flaskblog-app.herokuapp.com/)   
+Deployed project can be accessed here [Blog](https://blog-flaskapp.herokuapp.com/)   
 
 ## Known Bugs
     The application works perfectly well, no bugs.
