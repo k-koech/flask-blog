@@ -21,6 +21,13 @@ class ProdConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
+    MAIL_SERVER = 'smtp.gmail.com'
+    MAIL_PORT = 465
+    MAIL_USE_TLS = True
+    MAIL_USE_SSL = False
+    MAIL_USERNAME = "kalambanidouglas@gmail.com"
+    MAIL_PASSWORD ="kalambani97?"
+    
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     
 
