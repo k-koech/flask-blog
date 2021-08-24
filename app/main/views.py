@@ -102,7 +102,7 @@ def post(id):
     raw_quotes = get_quotes()
     quotes = json.loads(raw_quotes)
 
-    comments = Comments.filter(post_id=id).all()
+    comments = Comments.query.filter_by(post_id=id).all()
     post = Post.query.get_or_404(id)
     return render_template("post.html", title=post.title,post=post, quotes=quotes, form=form, comments=comments)
 

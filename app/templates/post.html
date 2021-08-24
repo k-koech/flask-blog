@@ -38,7 +38,7 @@
         </div>
       </div>
       <div class="col-md-10">
-      <form method="POST" action="">
+      <form method="POST" action="/post/{{post.id}}/comment">
           {{ form.hidden_tag() }}
           <div class="form-group">
               {{ form.comment.label(class="form-control-label") }}
@@ -57,10 +57,25 @@
               {{ form.submit(class="btn btn-outline-primary btn-sm") }}
           </div>
       </form>
-
-      <div>
-        <p></p>
+     
+      {% for comment in comments %}
+      <div class="bg-white border rounded p-2 row">
+        
+        <div class="col-md-2 text-right">
+          <img class="rounded-circle " width="50" height="50" src="{{ url_for('static', filename='profile_images/' +  comment.author.image_file) }}">
+        </div>
+        <div class="col-md-10">
+          <div class="row text-right">
+            <form action="" method="POST">
+                  <button class="btn btn-danger btn-sm">Delete</button>
+            </form>
+          </div>
+            <p>{{ comment.comment }}</p>
+          
+        </div>        
       </div>
+      {% endfor %}
+
       </div>
     </div>
 
