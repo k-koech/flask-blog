@@ -42,6 +42,7 @@ Deployed project can be accessed here [Blog](https://flaskblog-app.herokuapp.com
 ## Technologies used
     - HTML
     - CSS
+    - Fontawesome
     - Bootstrap
     - Python
 
@@ -50,5 +51,5 @@ Deployed project can be accessed here [Blog](https://flaskblog-app.herokuapp.com
     - phone :: +254725801772
 
 ### License
-*Licenced under the [MT-licence](https://github.com/k-koech/pitches_flask/blob/master/LICENSE.md)*
+*Licenced under the [MT-licence](https://github.com/k-koech/flask-blog/blob/master/LICENSE.md)*
 Copyright (c) 2021 **Kelvin Kipchumba
