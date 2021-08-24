@@ -142,6 +142,17 @@ def post_delete(id):
     else:
         abort(403)
 
+"""DELETE COMMENT"""
+@main.route("/post/<postid>/comment/<id>", methods=['POST',"GET"])
+@login_required
+def delete_comment(postid=None,id=None):
+    comment = Comments.query.get_or_404(id)
+    db.session.delete(comment)
+    db.session.commit()
+    flash("Comment deleted", "success")
+    return redirect("/post/"+postid)
+
+    
 """ADD COMMENT"""
 @main.route("/post/<post_id>/comment", methods=['GET','POST'])
 @login_required
@@ -156,12 +167,4 @@ def add_comment(post_id):
     return redirect("/post/"+post_id)
 
 
-"""DELETE COMMENT"""
-@main.route("/post/comment/<id>", methods=['POST',"GET"])
-@login_required
-def delete_comment(id=None):
-    comment = Post.query.get_or_404(id)
-    db.session.delete(comment)
-    db.session.commit()
-    flash("Comment deleted", "success")
-    return redirect("/post/15")
+
