@@ -23,9 +23,11 @@
         </div>
     </form>
       <div class="">
-        <h5 class="font-weight-bold"><u>Qoute</u></h5>
-        <p class="font-weight-bold">" {{ quotes.quote }}"</p>
-        <p class="text-right">~ {{ quotes.author }}</p>
+        <h5 class="font-weight-bold">Qoute</h5>
+        <blockquote class="blockquote">
+          <p class="mb-0">" {{ quotes.quote }}"</p>
+          <footer class="blockquote-footer">{{ quotes.author }}</footer>
+        </blockquote>
       </div>
     
   </div>
