@@ -80,18 +80,16 @@ def new_post():
    quotes = json.loads(raw_quotes)
    if form.validate_on_submit():
         post = Post(title=form.title.data, content=form.content.data, author=current_user)
-        flash("Your post has been published", "success")
         db.session.add(post)
         db.session.commit()
+        flash("Your post has been published", "success")
 
         users = User.query.filter_by(subscribe=True).all()
-        print(users)
         for user in users:
-            mail_message("KK Blog New Article","email/welcome_user",user.email,user=user)
-    
+            mail_message("KK Blog New Article","email/welcome_user",user.email,user=user,blog_title=form.title.data)
 
         return redirect(url_for('main.home'))
-   return render_template("create_post.html",form=form, title="New Post",quotes=quotes,legend="New Post",blog_title=form.title.data)
+   return render_template("create_post.html",form=form, title="New Post",quotes=quotes,legend="New Post")
 
 """INDIVIDUAL POST VIEW"""
 @main.route("/post/<id>", methods=['GET','POST'])
