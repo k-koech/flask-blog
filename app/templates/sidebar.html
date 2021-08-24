@@ -1,0 +1,25 @@
+<div class="content-section">
+   
+    <h3>Subscribe to our Articles</h3>
+    <form class="mb-2" method="POST" action="/subscribe/{{ current_user.id }}">
+        <div class="form-group">
+          <label>Email address</label>
+          {% if current_user.is_authenticated %}
+          <input readonly type="email" class="form-control" name="email" value="{{ current_user.email }}">
+          {% else %}
+          <input type="email" class="form-control" name="emaiil">
+          {% endif %}
+        </div>
+        <div class="form-group text-right">
+        {% if current_user.is_authenticated and current_user.subscribe==true %}
+            <button type="submit" class="btn btn-info">Unsubscribe</button>
+        {% else %}
+            <button type="submit" class="btn btn-info">Subscribe</button>
+        {% endif %}
+        </div>
+    </form>
+      <div class="">
+        <p class="font-weight-bold">{{ quotes.quote }}</p>
+      </div>
+    
+  </div>
