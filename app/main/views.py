@@ -36,8 +36,8 @@ def subscibe(user_id):
 def save_picture(form_pic):
     random_hex=secrets.token_hex(8)
     _, f_ext=os.path.splitext(form_pic.filename)
-    picture_fn = random_hex + f_ext
-    picture_path = os.path.join('/home/moringa/Desktop/CORE/flask/blogs/app/static/profile_images',picture_fn)
+    picture_fn = random_hex + f_ext 
+    picture_path = os.path.join('/app/static/profile_images',picture_fn)
     form_pic.save(picture_path)
     output_size=(125,125)
     i = Image.open(form_pic)
