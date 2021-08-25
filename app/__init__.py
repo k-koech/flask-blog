@@ -25,6 +25,7 @@ def create_app(config_name):
     bcrypt.init_app(app)
 
     app.config.update(
+    MAIL_USE_SSL = True,
     MAIL_SERVER = 'smtp.gmail.com',
     MAIL_PORT = 465,
     MAIL_USE_TLS = True,
