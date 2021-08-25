@@ -15,7 +15,7 @@ from ..email import mail_message
 def home():
     raw_quotes = get_quotes()
     quotes = json.loads(raw_quotes)
-    posts = Post.query.all().order_by(PostForm.id.desc())
+    posts = Post.query.order_by(Post.id.desc())
     return render_template("home.html", posts=posts, quotes=quotes)
 
 """SUBSCRIBE VIEW"""
