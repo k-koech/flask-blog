@@ -24,7 +24,7 @@
           <div class="col-sm-6 text-right">
             {% if post.author == current_user %}
                   <a class="btn  btn-outline-secondary btn-sm mt-1 mb-1" href="/post/update/{{post.id}}">Update</a>
-                  <button class="btn btn-outline-danger btn-sm m-1" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+                  <button class="btn btn-outline-danger btn-sm m-1" type="button" data-toggle="modal" data-bs-target="#deleteModal">Delete</button>
             {% endif %}
                 <!-- Modal -->
               <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -43,7 +43,7 @@
                   </div>
                 </div>
               </div>
-              
+
           </div>
            
         </div>
