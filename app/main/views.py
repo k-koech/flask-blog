@@ -56,7 +56,7 @@ def profile():
     quotes = json.loads(raw_quotes)
     if form.validate_on_submit():
         if form.picture.data:
-                picture_file="sjh.png"
+                picture_file="default.jpg"
                 current_user.image_file=picture_file
 
         current_user.username=form.username.data
