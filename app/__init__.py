@@ -29,8 +29,8 @@ def create_app(config_name):
     MAIL_PORT = 465,
     MAIL_USE_TLS = True,
     MAIL_USE_SSL = False,
-    MAIL_USERNAME = "kalambanidouglas@gmail.com",
-    MAIL_PASSWORD ="kalambani97?")
+    MAIL_USERNAME = "kelvinkoech@topinvestor.co.ke",
+    MAIL_PASSWORD ="JiqDjd4MGTzY57Z")
     
     mail.init_app(app)
 
