@@ -24,7 +24,8 @@ body {
     font-weight: 500;
   }
   
-  .content-section {
+  .content-section 
+  {
     background: #ffffff;
     padding: 10px 20px;
     border: 1px solid #dddddd;
@@ -36,12 +37,14 @@ body {
     color: #444444;
   }
   
-  a.article-title:hover {
-    color: #2443d0c7;
+  a.article-title:hover
+  {
+    color: #0000FF;
     text-decoration: none;
   }
   
-  .article-content {
+  .article-content
+   {
     white-space: pre-line;
   }
   
