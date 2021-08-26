@@ -26,7 +26,7 @@ class ProdConfig(Config):
     MAIL_PORT = 465
     MAIL_USE_TLS = False
     MAIL_USERNAME = "kalambanidouglas@gmail.com"
-    MAIL_PASSWORD ="kalambani97!"
+    MAIL_PASSWORD ="svsss"
 
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     
