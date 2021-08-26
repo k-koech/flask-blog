@@ -6,7 +6,7 @@ from sqlalchemy.orm import query
 from app.models import User, Post
 from app import db, bcrypt
 from flask import url_for, render_template, flash, redirect, request, abort
-from .forms import RegistrationForm, LoginForm,PostForm
+from .forms import RegistrationForm, LoginForm
 from flask_login import login_user, current_user, logout_user, login_required
 from PIL import Image
 import json
